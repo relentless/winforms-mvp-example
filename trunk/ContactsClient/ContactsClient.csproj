@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E559609E-42D2-4168-93AC-A70B7EE0B059}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ContactsClient</RootNamespace>
+    <AssemblyName>ContactsClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientServiceLocator.cs" />
+    <Compile Include="IViewFactory.cs" />
+    <Compile Include="PersonList\IPersonListPresenter.cs" />
+    <Compile Include="PersonList\IPersonListView.cs" />
+    <Compile Include="PersonDetails\IPersonDetailsView.cs" />
+    <Compile Include="PersonDetails\IPersonDetailsPresenter.cs" />
+    <Compile Include="PersonDetails\PersonDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonDetails\PersonDetailsView.Designer.cs">
+      <DependentUpon>PersonDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonDetails\PersonDetailsPresenter.cs" />
+    <Compile Include="PersonList\PersonListPresenter.cs" />
+    <Compile Include="PersonList\PersonListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonList\PersonListView.Designer.cs">
+      <DependentUpon>PersonListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PersonDetails\PersonDetailsView.resx">
+      <DependentUpon>PersonDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonList\PersonListView.resx">
+      <DependentUpon>PersonListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\DataSources\ContactsDomain.DomainObjects.Person.datasource" />
+    <None Include="Properties\DataSources\PersonListView.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewEvent.cs" />
+    <Compile Include="ViewFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsDataAccess\ContactsDataAccess.csproj">
+      <Project>{45287966-37A3-4C19-92D7-D200282C60EB}</Project>
+      <Name>ContactsDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContactsDomain\ContactsDomain.csproj">
+      <Project>{A12C51A2-ACBD-4C68-9540-6CE184FD985D}</Project>
+      <Name>ContactsDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)..\SharedLib\sqlce*.dll $(ProjectDir)$(OutDir)
+copy $(ProjectDir)..\SharedLib\*Lin*.dll $(ProjectDir)$(OutDir)
+copy $(ProjectDir)..\SharedLib\System.Data.SqlServerCe.dll $(ProjectDir)$(OutDir)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

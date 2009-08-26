@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\Programming\NHibernate\ContactsPrototype1\ContactsDataAccess.Tests\bin\Debug\ContactsDataAccess.Tests.dll" total="1" failures="0" not-run="0" date="2009-07-17" time="20:34:07">
+  <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3074" os-version="Microsoft Windows NT 6.0.6001 Service Pack 1" platform="Win32NT" cwd="C:\Program Files\NUnit 2.4.8\bin" machine-name="GC-LAPTOP" user="Grant" user-domain="GC-Laptop" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite name="E:\Programming\NHibernate\ContactsPrototype1\ContactsDataAccess.Tests\bin\Debug\ContactsDataAccess.Tests.dll" success="True" time="3.195" asserts="0">
+    <results>
+      <test-suite name="ContactsDataAccess" success="True" time="3.190" asserts="0">
+        <results>
+          <test-suite name="Tests" success="True" time="3.188" asserts="0">
+            <results>
+              <test-suite name="SchemaGenerator_Fixtures" success="True" time="3.175" asserts="0">
+                <results>
+                  <test-case name="ContactsDataAccess.Tests.SchemaGenerator_Fixtures.generates_database_schema" executed="True" success="True" time="3.169" asserts="0" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

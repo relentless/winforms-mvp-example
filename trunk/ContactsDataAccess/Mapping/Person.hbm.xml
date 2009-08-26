@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ContactsDomain"
+                   namespace="ContactsDomain.DomainObjects">
+  <class name="Person">
+    <id name="Id">
+      <generator class="increment"/>
+    </id>
+    <property name="Forename"/>
+    <property name="Surname"/>
+    <property name="BirthdayMonth"/>
+    <property name="BirthdayDay"/>
+    <set name="EmailAddresses">
+      <key column="Person_Id"/>
+      <element column="Email" type="String"/>
+    </set>
+    <set name="PhoneNumbers" cascade="all">
+      <key column="Person_Id"/>
+      <many-to-many column="Id" class="PhoneNumber"/>
+    </set>
+  </class>
+</hibernate-mapping>

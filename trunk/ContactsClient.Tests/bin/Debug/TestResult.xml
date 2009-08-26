@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" total="3" failures="0" not-run="0" date="2009-07-18" time="14:11:26">
+  <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3074" os-version="Microsoft Windows NT 6.0.6001 Service Pack 1" platform="Win32NT" cwd="C:\Program Files\NUnit 2.4.8\bin" machine-name="GC-LAPTOP" user="Grant" user-domain="GC-Laptop" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite name="E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" success="True" time="0.175" asserts="0">
+    <results>
+      <test-suite name="ContactsClient" success="True" time="0.173" asserts="0">
+        <results>
+          <test-suite name="Tests" success="True" time="0.172" asserts="0">
+            <results>
+              <test-suite name="PersonDetailsPresenter_Fixtures" success="True" time="0.154" asserts="0">
+                <results>
+                  <test-case name="ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_AddsPersonToRepository" executed="True" success="True" time="0.141" asserts="5" />
+                  <test-case name="ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_ClearsViewFields" executed="True" success="True" time="0.001" asserts="4" />
+                </results>
+              </test-suite>
+              <test-suite name="PersonListPresenter_Fixtures" success="True" time="0.003" asserts="0">
+                <results>
+                  <test-case name="ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_LoadButtonPressed_SetsPersonList" executed="True" success="True" time="0.003" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

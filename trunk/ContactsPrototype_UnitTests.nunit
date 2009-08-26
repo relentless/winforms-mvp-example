@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll" />
+    <assembly path="ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>
