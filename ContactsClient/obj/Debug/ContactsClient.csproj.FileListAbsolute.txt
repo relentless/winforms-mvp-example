@@ -57,3 +57,5 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\Iesi.Coll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\NHibernate.dll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\ContactsDataAccess.pdb
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.exe
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.pdb
