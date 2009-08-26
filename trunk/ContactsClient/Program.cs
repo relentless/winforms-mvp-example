@@ -26,8 +26,6 @@ namespace ContactsClient
 
             SetupServiceLocator();
 
-            //PersonListView view = new PersonListView();
-
             IPersonListPresenter listPresenter = ClientServiceLocator.PersonListPresenter;
             listPresenter.Start();
 
@@ -37,7 +35,6 @@ namespace ContactsClient
         public static void SetupServiceLocator()
         {
             IPersonManager manager = new PersonManager(new PersonRepository());
-            //IPersonDetailsView detailsView = new PersonDetailsView();
             IViewFactory viewFactory = new ViewFactory();
             IPersonDetailsPresenter detailsPresenter = new PersonDetailsPresenter(viewFactory, manager);
             IPersonListView listView = new PersonListView();
