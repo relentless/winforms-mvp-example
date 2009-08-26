@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsDomain", "ContactsDomain\ContactsDomain.csproj", "{A12C51A2-ACBD-4C68-9540-6CE184FD985D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsDataAccess", "ContactsDataAccess\ContactsDataAccess.csproj", "{45287966-37A3-4C19-92D7-D200282C60EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsDataAccess.Tests", "ContactsDataAccess.Tests\ContactsDataAccess.Tests.csproj", "{3FC47CCB-CFD0-475C-890B-F01380D06368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsDomain.Tests", "ContactsDomain.Tests\ContactsDomain.Tests.csproj", "{573DB65D-519C-4C29-83F8-B18A334511B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsClient", "ContactsClient\ContactsClient.csproj", "{E559609E-42D2-4168-93AC-A70B7EE0B059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsClient.Tests", "ContactsClient.Tests\ContactsClient.Tests.csproj", "{333D27F0-C8EC-4494-B5B1-1EF08725524D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtils", "TestUtils\TestUtils.csproj", "{89F932F0-A6E2-4356-B534-F02EEFA7101B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A12C51A2-ACBD-4C68-9540-6CE184FD985D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12C51A2-ACBD-4C68-9540-6CE184FD985D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12C51A2-ACBD-4C68-9540-6CE184FD985D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12C51A2-ACBD-4C68-9540-6CE184FD985D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45287966-37A3-4C19-92D7-D200282C60EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45287966-37A3-4C19-92D7-D200282C60EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45287966-37A3-4C19-92D7-D200282C60EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45287966-37A3-4C19-92D7-D200282C60EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC47CCB-CFD0-475C-890B-F01380D06368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC47CCB-CFD0-475C-890B-F01380D06368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC47CCB-CFD0-475C-890B-F01380D06368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC47CCB-CFD0-475C-890B-F01380D06368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573DB65D-519C-4C29-83F8-B18A334511B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573DB65D-519C-4C29-83F8-B18A334511B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573DB65D-519C-4C29-83F8-B18A334511B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573DB65D-519C-4C29-83F8-B18A334511B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E559609E-42D2-4168-93AC-A70B7EE0B059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E559609E-42D2-4168-93AC-A70B7EE0B059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E559609E-42D2-4168-93AC-A70B7EE0B059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E559609E-42D2-4168-93AC-A70B7EE0B059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{333D27F0-C8EC-4494-B5B1-1EF08725524D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333D27F0-C8EC-4494-B5B1-1EF08725524D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333D27F0-C8EC-4494-B5B1-1EF08725524D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333D27F0-C8EC-4494-B5B1-1EF08725524D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F932F0-A6E2-4356-B534-F02EEFA7101B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F932F0-A6E2-4356-B534-F02EEFA7101B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F932F0-A6E2-4356-B534-F02EEFA7101B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F932F0-A6E2-4356-B534-F02EEFA7101B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

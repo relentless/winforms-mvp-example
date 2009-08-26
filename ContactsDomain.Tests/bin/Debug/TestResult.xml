@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\Programming\NHibernate\ContactsPrototype1\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll" total="2" failures="0" not-run="0" date="2009-07-18" time="13:30:12">
+  <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3074" os-version="Microsoft Windows NT 6.0.6001 Service Pack 1" platform="Win32NT" cwd="C:\Program Files\NUnit 2.4.8\bin" machine-name="GC-LAPTOP" user="Grant" user-domain="GC-Laptop" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite name="E:\Programming\NHibernate\ContactsPrototype1\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll" success="True" time="0.263" asserts="0">
+    <results>
+      <test-suite name="ContactsDomain" success="True" time="0.259" asserts="0">
+        <results>
+          <test-suite name="Tests" success="True" time="0.257" asserts="0">
+            <results>
+              <test-suite name="PersonManager_Fixtures" success="True" time="0.245" asserts="0">
+                <results>
+                  <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_Add_AddsToRepository" executed="True" success="True" time="0.167" asserts="6" />
+                  <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_GetAll_ReturnsListFromRepository" executed="True" success="True" time="0.069" asserts="16" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

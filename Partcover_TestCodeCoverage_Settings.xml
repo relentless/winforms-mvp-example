@@ -1,0 +1,9 @@
+<PartCoverSettings>
+  <Target>C:\Program Files\NUnit 2.4.8\bin\nunit-console.exe</Target>
+  <TargetWorkDir>C:\Program Files\NUnit 2.4.8\bin</TargetWorkDir>
+  <TargetArgs>E:\Programming\NHibernate\ContactsPrototype1\contactsprototype_unittests.nunit</TargetArgs>
+  <Rule>+[ContactsClient]*</Rule>
+  <Rule>+[ContactsDomain]*</Rule>
+  <Rule>-[*]*Tests</Rule>
+  <Rule>-[ContactsClient]ContactsClient.Properties*</Rule>
+</PartCoverSettings>

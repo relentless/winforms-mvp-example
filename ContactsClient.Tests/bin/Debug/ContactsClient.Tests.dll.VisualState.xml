@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1005]E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll</TopNode>
+  <SelectedNode>[0-1005]E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1005]E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" Expanded="true">
+      <Nodes>
+        <Node UniqueName="[0-1006]ContactsClient" Expanded="true">
+          <Nodes>
+            <Node UniqueName="[0-1007]ContactsClient.Tests" Expanded="true">
+              <Nodes>
+                <Node UniqueName="[0-1002]ContactsClient.Tests.PersonDetailsPresenter_Fixtures" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1003]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_AddsPersonToRepository" />
+                    <Node UniqueName="[0-1004]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_ClearsViewFields" />
+                  </Nodes>
+                </Node>
+                <Node UniqueName="[0-1000]ContactsClient.Tests.PersonListPresenter_Fixtures" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1001]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_LoadButtonPressed_SetsPersonList" />
+                  </Nodes>
+                </Node>
+              </Nodes>
+            </Node>
+          </Nodes>
+        </Node>
+      </Nodes>
+    </Node>
+  </Nodes>
+</VisualState>

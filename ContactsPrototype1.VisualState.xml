@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]E:\Programming\NHibernate\ContactsPrototype1\ContactsPrototype1.nunit</TopNode>
+  <SelectedNode>[0-1000]E:\Programming\NHibernate\ContactsPrototype1\ContactsPrototype1.nunit</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]E:\Programming\NHibernate\ContactsPrototype1\ContactsPrototype1.nunit" Expanded="true">
+      <Nodes>
+        <Node UniqueName="[0-1005]E:\Programming\NHibernate\ContactsPrototype1\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll" Expanded="true">
+          <Nodes>
+            <Node UniqueName="[0-1006]ContactsDomain" Expanded="true">
+              <Nodes>
+                <Node UniqueName="[0-1007]ContactsDomain.Tests" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1001]ContactsDomain.Tests.PersonManager_Fixtures" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1003]ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_AddPerson_AddsToRepository" />
+                        <Node UniqueName="[0-1004]ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_DeletePerson_RemovesFromRepository" />
+                        <Node UniqueName="[0-1002]ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_GetAll_ReturnsListFromRepository" />
+                      </Nodes>
+                    </Node>
+                  </Nodes>
+                </Node>
+              </Nodes>
+            </Node>
+          </Nodes>
+        </Node>
+        <Node UniqueName="[0-1021]E:\Programming\NHibernate\ContactsPrototype1\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" Expanded="true">
+          <Nodes>
+            <Node UniqueName="[0-1022]ContactsClient" Expanded="true">
+              <Nodes>
+                <Node UniqueName="[0-1023]ContactsClient.Tests" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1018]ContactsClient.Tests.ClientServiceLocator_Fixtures" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1019]ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonDetailsPresenter_ReturnsCorrectObject" />
+                        <Node UniqueName="[0-1020]ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonListPresenter_ReturnsCorrectObject" />
+                      </Nodes>
+                    </Node>
+                    <Node UniqueName="[0-1015]ContactsClient.Tests.PersonDetailsPresenter_Fixtures" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1016]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_AddsPersonToRepository" />
+                        <Node UniqueName="[0-1017]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddButtonPressed_ClearsViewFields" />
+                      </Nodes>
+                    </Node>
+                    <Node UniqueName="[0-1008]ContactsClient.Tests.PersonListPresenter_Fixtures" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1010]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_AddButtonPressed_ShowsPersonDetailsView" />
+                        <Node UniqueName="[0-1012]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_DeleteButtonPressed_DeletesSelectedPersonFromRepository" />
+                        <Node UniqueName="[0-1011]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_DeleteButtonPressed_GetsSelectedPersonFromView" />
+                        <Node UniqueName="[0-1009]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_LoadButtonPressed_SetsPersonList" />
+                        <Node UniqueName="[0-1014]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_ViewButtonPressed_PassesCorrectPersonDetailsToPersonDetailsPresenter" />
+                        <Node UniqueName="[0-1013]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_ViewButtonPressed_ShowsPersonDetailsView" />
+                      </Nodes>
+                    </Node>
+                  </Nodes>
+                </Node>
+              </Nodes>
+            </Node>
+          </Nodes>
+        </Node>
+      </Nodes>
+    </Node>
+  </Nodes>
+</VisualState>

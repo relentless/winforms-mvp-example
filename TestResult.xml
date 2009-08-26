@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\Programming\NHibernate\ContactsPrototype1b\ContactsPrototype_UnitTests.nunit" total="19" failures="0" not-run="0" date="2009-08-25" time="22:33:33">
+  <environment nunit-version="2.4.8.0" clr-version="2.0.50727.4016" os-version="Microsoft Windows NT 6.0.6002 Service Pack 2" platform="Win32NT" cwd="E:\Programming\NHibernate\ContactsPrototype1b" machine-name="GC-LAPTOP" user="Grant" user-domain="GC-Laptop" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite name="E:\Programming\NHibernate\ContactsPrototype1b\ContactsPrototype_UnitTests.nunit" success="True" time="1.490" asserts="0">
+    <results>
+      <test-suite name="E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll" success="True" time="0.179" asserts="0">
+        <results>
+          <test-suite name="ContactsDomain" success="True" time="0.176" asserts="0">
+            <results>
+              <test-suite name="Tests" success="True" time="0.172" asserts="0">
+                <results>
+                  <test-suite name="PersonManager_Fixtures" success="True" time="0.160" asserts="0">
+                    <results>
+                      <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_AddPerson_AddsToRepository" executed="True" success="True" time="0.124" asserts="6" />
+                      <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_DeletePerson_RemovesFromRepository" executed="True" success="True" time="0.001" asserts="6" />
+                      <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_GetAll_ReturnsListFromRepository" executed="True" success="True" time="0.023" asserts="16" />
+                      <test-case name="ContactsDomain.Tests.PersonManager_Fixtures.PersonManager_UpdatePerson_UpdatesPersonInRepository" executed="True" success="True" time="0.002" asserts="6" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite name="E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" success="True" time="1.301" asserts="0">
+        <results>
+          <test-suite name="ContactsClient" success="True" time="1.296" asserts="0">
+            <results>
+              <test-suite name="Tests" success="True" time="1.294" asserts="0">
+                <results>
+                  <test-suite name="ClientServiceLocator_Fixtures" success="True" time="0.013" asserts="0">
+                    <results>
+                      <test-case name="ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonDetailsPresenter_ReturnsCorrectObject" executed="True" success="True" time="0.001" asserts="1" />
+                      <test-case name="ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonDetailsPresenterWithNoPresenter_RaisesApplicationException" executed="True" success="True" time="0.000" asserts="1" />
+                      <test-case name="ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonListPresenter_ReturnsCorrectObject" executed="True" success="True" time="0.001" asserts="1" />
+                      <test-case name="ContactsClient.Tests.ClientServiceLocator_Fixtures.ClientServiceLocator_GetPersonListPresenterWithNoPresenter_RaisesApplicationException" executed="True" success="True" time="0.000" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="PersonListView_Fixtures" success="True" time="1.180" asserts="0">
+                    <results>
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_AddButtonPressed_FiresEvent" executed="True" success="True" time="0.718" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_DeleteButtonPressed_FiresEvent" executed="True" success="True" time="0.026" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_EditButtonPressed_FiresEvent" executed="True" success="True" time="0.033" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_GetSelectedListItems_ReturnsCorrectPerson" executed="True" success="True" time="0.059" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_LoadButtonPressed_FiresEvent" executed="True" success="True" time="0.047" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_SetPersonList_DisplaysCorrectPeople" executed="True" success="True" time="0.071" asserts="3" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_ShowDefaultCursor_ShowsDefaultCursor" executed="True" success="True" time="0.036" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_ShowWaitCursor_ShowsWaitCursor" executed="True" success="True" time="0.053" asserts="1" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_ShowWarning_ShowsMessageBoxWithCorrectTitleAndMessage" executed="True" success="True" time="0.054" asserts="3" />
+                      <test-case name="ContactsClient.Tests.PersonListView_Fixtures.PersonListView_ViewButtonPressed_FiresEvent" executed="True" success="True" time="0.035" asserts="1" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="Program_Fixtures" success="True" time="0.082" asserts="0">
+                    <results>
+                      <test-case name="ContactsClient.Tests.Program_Fixtures.Program_SetupServiceLocator_SetsUpClientServiceLocator" executed="True" success="True" time="0.082" asserts="4" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

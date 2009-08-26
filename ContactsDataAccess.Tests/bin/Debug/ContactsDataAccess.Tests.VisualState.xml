@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1013]E:\Programming\NHibernate\ContactsPrototype1\ContactsDataAccess.Tests\bin\Debug\ContactsDataAccess.Tests.dll</TopNode>
+  <SelectedNode>[0-1015]ContactsDataAccess.Tests</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1013]E:\Programming\NHibernate\ContactsPrototype1\ContactsDataAccess.Tests\bin\Debug\ContactsDataAccess.Tests.dll" Expanded="true">
+      <Nodes>
+        <Node UniqueName="[0-1014]ContactsDataAccess" Expanded="true">
+          <Nodes>
+            <Node UniqueName="[0-1015]ContactsDataAccess.Tests" Expanded="true">
+              <Nodes>
+                <Node UniqueName="[0-1009]ContactsDataAccess.Tests.NHibernateHelper_Fixtures" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1010]ContactsDataAccess.Tests.NHibernateHelper_Fixtures.creates_session" />
+                  </Nodes>
+                </Node>
+                <Node UniqueName="[0-1000]ContactsDataAccess.Tests.PersonRepository_Fixtures" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1001]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_add_new_person" />
+                    <Node UniqueName="[0-1002]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_add_new_person_with_email" />
+                    <Node UniqueName="[0-1003]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_add_new_person_with_phone_number" />
+                    <Node UniqueName="[0-1007]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_get_all" />
+                    <Node UniqueName="[0-1006]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_get_by_id" />
+                    <Node UniqueName="[0-1005]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_remove_person" />
+                    <Node UniqueName="[0-1008]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_save_person_list" />
+                    <Node UniqueName="[0-1004]ContactsDataAccess.Tests.PersonRepository_Fixtures.can_update_person" />
+                  </Nodes>
+                </Node>
+                <Node UniqueName="[0-1011]ContactsDataAccess.Tests.SchemaGenerator_Fixtures" Expanded="true">
+                  <Nodes>
+                    <Node UniqueName="[0-1012]ContactsDataAccess.Tests.SchemaGenerator_Fixtures.generates_database_schema" />
+                  </Nodes>
+                </Node>
+              </Nodes>
+            </Node>
+          </Nodes>
+        </Node>
+      </Nodes>
+    </Node>
+  </Nodes>
+</VisualState>
