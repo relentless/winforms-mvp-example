@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="FakePersonListView.cs" />
     <Compile Include="FakePersonManager.cs" />
+    <Compile Include="FakeViewFactory.cs" />
     <Compile Include="PersonDetailsPresenter_Fixtures.cs" />
     <Compile Include="PersonListPresenter_Fixtures.cs">
     </Compile>

@@ -1,6 +1,7 @@
 ﻿using System;
 using ContactsDomain.BusinessManagers;
 using ContactsDomain.DomainObjects;
+using System.Diagnostics;
 
 namespace ContactsClient.PersonDetails
 {
@@ -8,12 +9,12 @@ namespace ContactsClient.PersonDetails
     {
         private enum ViewMode
         {
-            View, Add, Edit
+            View, Add, Edit, Undefined
         }
 
         private readonly IPersonManager _manager;
         private IPersonDetailsView _view;
-        private ViewMode _mode = ViewMode.Add;
+        private ViewMode _mode = ViewMode.Undefined;
         private Person _person;
 
         private IViewFactory _factory;
@@ -22,6 +23,9 @@ namespace ContactsClient.PersonDetails
         {
             _factory = Factory;
             _manager = Manager;
+
+            _view = _factory.CreateDetailsView();
+            _view.Presenter = this;
         }
 
         #region IPersonDetailsPresenter Members
@@ -31,16 +35,15 @@ namespace ContactsClient.PersonDetails
             _view.ShowForm(Modal);
         }
 
-        public void ViewClosed()
+        public IPersonDetailsView View
         {
-            _view = null;
+            get { return _view; }
         }
 
-        public void Start()
-        {
-            _view = _factory.DetailsView();
-            _view.Presenter = this;
-        }
+        //public void ViewClosed()
+        //{
+        //    _view = null;
+        //}
 
         public void OkButtonPressed()
         {
@@ -57,10 +60,18 @@ namespace ContactsClient.PersonDetails
                     EditPersonWithManager();
                     CloseView();
                     break;
+                case ViewMode.Undefined:
+                    throw new ApplicationException("View mode not set");
+                default:
+                    Debug.Assert(false, "Invalid view mode encountered");
+                    break;
             }
+        }
 
-            //set back to default Add mode
+        public void AddPerson()
+        {
             _mode = ViewMode.Add;
+            _view.Title = "Add Person";
         }
 
         public void ShowPerson(Person person)

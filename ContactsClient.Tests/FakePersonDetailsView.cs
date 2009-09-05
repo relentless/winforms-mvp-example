@@ -7,9 +7,12 @@ namespace ContactsClient.Tests
     {
         private string _title, _forename, _surname, _birthdayDay, _birthdayMonth;
         public bool FormClosed;
+        internal bool FormShown { get; set; }
 
         public void ShowForm(bool Modal)
-        { }
+        {
+            FormShown = true;
+        }
 
         #region IPersonDetailsView Members
 

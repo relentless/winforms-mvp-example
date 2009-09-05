@@ -96,6 +96,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)..\SharedLib\sqlce*.dll $(ProjectDir)$(OutDir)</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)..\SharedLib\sqlce*.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

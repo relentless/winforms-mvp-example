@@ -1,276 +1,294 @@
-﻿//using NUnit.Framework;
-//using ContactsClient.PersonList;
-//using System.Collections.Generic;
-//using ContactsDomain.DomainObjects;
-//using ContactsDomain.BusinessManagers;
-//using TestUtils;
-//using System.Windows.Forms;
-//using ContactsClient.PersonDetails;
-//using ContactsDomain.Tests;
-//using System;
+﻿using NUnit.Framework;
+using ContactsClient.PersonList;
+using System.Collections.Generic;
+using ContactsDomain.DomainObjects;
+using ContactsDomain.BusinessManagers;
+using TestUtils;
+using System.Windows.Forms;
+using ContactsClient.PersonDetails;
+using ContactsDomain.Tests;
+using System;
 
-//namespace ContactsClient.Tests
-//{
-//    [TestFixture]
-//    public class PersonListPresenter_Fixtures
-//    {
-//        [Test]
-//        public void PersonListPresenter_LoadButtonPressed_SetsPersonList()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>(){new Person() {Id=1, Forename="Jim"},
-//                                                         new Person() {Id=2, Forename="Sue"}};
+namespace ContactsClient.Tests
+{
+    [TestFixture]
+    public class PersonListPresenter_Fixtures
+    {
+        [Test]
+        public void PersonListPresenter_LoadButtonPressed_SetsPersonList()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>(){PersonObjectMother.GetPerson(TestPeople.Ted),
+                                                         PersonObjectMother.GetPerson(TestPeople.Sue)};
 
-//            FakePersonManager manager = new FakePersonManager();
-//            manager.PersonList = personList;
+            FakePersonManager manager = new FakePersonManager();
+            manager.PersonList = personList;
 
-//            FakePersonListView view = new FakePersonListView();
+            FakePersonListView view = new FakePersonListView();
+            IPersonListPresenter presenter = new PersonListPresenter(view, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            IPersonListPresenter presenter = new PersonListPresenter(manager);
-//            presenter.View = view;
+            //Act
+            view.PressLoadButton();
 
-//            //Act
-//            view.PressLoadButton();
+            //Assert
+            Assert.AreEqual(personList, view.PersonList, "PersonList in View does not match that from the Manager");
+        }
 
-//            //Assert
-//            Assert.AreEqual(personList, view.PersonList, "PersonList in View does not match that from the Manager");
-//        }
+        [Test]
+        public void PersonListPresenter_LoadButtonPressed_ShowsWaitCursorWhileDataLoading()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>(){PersonObjectMother.GetPerson(TestPeople.Ted),
+                                                         PersonObjectMother.GetPerson(TestPeople.Sue)};
 
-//        [Test]
-//        public void PersonListPresenter_LoadButtonPressed_ShowsWaitCursorWhileDataLoading()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>(){new Person() {Id=1, Forename="Jim"},
-//                                                         new Person() {Id=2, Forename="Sue"}};
+            FakePersonManager manager = new FakePersonManager();
+            manager.PersonList = personList;
 
-//            FakePersonManager manager = new FakePersonManager();
-//            manager.PersonList = personList;
+            FakePersonListView view = new FakePersonListView();
+            IPersonListPresenter presenter = new PersonListPresenter(view, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            FakePersonListView view = new FakePersonListView();
+            DateTime startTime = DateTime.Now;
 
-//            IPersonListPresenter presenter = new PersonListPresenter(manager);
-//            presenter.View = view;
+            //Act
+            view.PressLoadButton();
 
-//            DateTime startTime = DateTime.Now;
+            //Assert
+            Assert.Greater(view.WaitCursorSetTime, startTime, "Wait cursor not set after start time");
+            Assert.Greater(view.DefaultCursorSetTime, view.WaitCursorSetTime, "Default cursor not set after wait cursor set");
+        }
 
-//            //Act
-//            view.PressLoadButton();
+        [Test]
+        public void PersonListPresenter_AddButtonPressed_CallsShowView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.Greater(view.WaitCursorSetTime, startTime, "Wait cursor not set after start time");
-//            Assert.Greater(view.DefaultCursorSetTime, view.WaitCursorSetTime, "Default cursor not set after wait cursor set");
-//        }
+            //Act
+            listView.PressAddButton();
 
-//        [Test]
-//        public void PersonListPresenter_AddButtonPressed_ShowsPersonDetailsView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+            //Assert
+            Assert.IsTrue(detailsPresenter.ShowViewCalled, "Show not called on Presenter");
+        }
 
-//            //Act
-//            listView.PressAddButton();
+        [Test]
+        public void PersonListPresenter_AddButtonPressed_CallsAddPerson()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.IsTrue(listView.OpenPersonDetailsScreenModelessCalled, "View was not opened");
-//        }
+            //Act
+            listView.PressAddButton();
 
-//        [Test]
-//        public void PersonListPresenter_AddButtonPressed_ReloadsPersonList()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue),
-//                                                           PersonObjectMother.GetPerson(TestPeople.Bill)};
-//            FakePersonManager manager = new FakePersonManager();
-//            manager.PersonList = personList;
+            //Assert
+            Assert.IsTrue(detailsPresenter.AddPersonCalled, "Add not called on Presenter");
+        }
 
-//            FakePersonListView listView = new FakePersonListView();
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+        [Test]
+        public void PersonListPresenter_AddButtonPressed_ReloadsPersonList()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue),
+                                                           PersonObjectMother.GetPerson(TestPeople.Bill)};
 
-//            //Act
-//            listView.PressAddButton();
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Assert
-//            Assert.AreEqual(personList, listView.PersonList, "PersonList in View does not match that from the Manager");
-//        }
+            FakePersonManager manager = new FakePersonManager();
+            manager.PersonList = personList;
 
-//        [Test]
-//        public void PersonListPresenter_DeleteButtonPressed_GetsSelectedPersonFromView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView view = new FakePersonListView();
-//            IPersonListPresenter presenter = new PersonListPresenter(manager);
-//            presenter.View = view;
+            FakePersonListView listView = new FakePersonListView();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Act
-//            view.PressDeleteButton();
+            //Act
+            listView.PressAddButton();
 
-//            //Assert
-//            Assert.IsTrue(view.GetSeletedListItemCalled, "GetSeletedListItem() not called");
-//        }
+            //Assert
+            Assert.AreEqual(personList, listView.PersonList, "PersonList in View does not match that from the Manager");
+        }
 
-//        [Test]
-//        public void PersonListPresenter_DeleteButtonPressed_DeletesSelectedPersonFromRepository()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>() { new Person() { Id = 1, Forename = "Jim" } };
+        [Test]
+        public void PersonListPresenter_DeleteButtonPressed_GetsSelectedPersonFromView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView view = new FakePersonListView();
+            IPersonListPresenter presenter = new PersonListPresenter(view, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView view = new FakePersonListView();
-//            view.PersonList = personList;
+            //Act
+            view.PressDeleteButton();
 
-//            IPersonListPresenter presenter = new PersonListPresenter(manager);
-//            presenter.View = view;
+            //Assert
+            Assert.IsTrue(view.GetSeletedListItemCalled, "GetSeletedListItem() not called");
+        }
 
-//            //Act
-//            view.PressDeleteButton();
+        [Test]
+        public void PersonListPresenter_DeleteButtonPressed_DeletesSelectedPersonFromRepository()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue),
+                                                           PersonObjectMother.GetPerson(TestPeople.Bill)};
 
-//            //Assert
-//            Assert.IsNotNull(manager.DeletedPerson, "Person not deleted from repository");
-//            Assertions.AssertPeopleAreEqual(personList[0], manager.DeletedPerson);
-//        }
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView view = new FakePersonListView();
+            view.PersonList = personList;
 
-//        [Test]
-//        public void PersonListPresenter_ViewButtonPressed_ShowsPersonDetailsViewModal()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue) };
+            IPersonListPresenter presenter = new PersonListPresenter(view, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
-//            listView.SetPersonList(personList);
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+            //Act
+            view.PressDeleteButton();
 
-//            listView.OpenDetailsScreenReturnPresenter = new FakePersonDetailsPresenter(new FakePersonManager());
+            //Assert
+            Assert.IsNotNull(manager.DeletedPerson, "Person not deleted from repository");
+            Assertions.AssertPeopleAreEqual(personList[0], manager.DeletedPerson);
+        }
 
-//            //Act
-//            listView.PressViewButton();
+        [Test]
+        public void PersonListPresenter_ViewButtonPressed_CallsShowView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            listView.PersonList = new List<Person>() {PersonObjectMother.GetPerson(TestPeople.Bill)};
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.IsTrue(listView.OpenViewPersonCalled, "View was not opened Modally");
-//        }
+            //Act
+            listView.PressViewButton();
 
-//        [Test]
-//        public void PersonListPresenter_ViewButtonPressed_PassesCorrectPersonDetailsToPersonDetailsPresenter()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Ted) };
+            //Assert
+            Assert.IsTrue(detailsPresenter.ShowViewCalled, "Show not called on Presenter");
+        }
 
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
-//            listView.SetPersonList(personList);
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+        [Test]
+        public void PersonListPresenter_ViewButtonPressed_PassesDetailsToPersonDetailsPresenter()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Ted) };
 
-//            //Act
-//            listView.PressViewButton();
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            listView.SetPersonList(personList);
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.IsNotNull(listView.ViewPerson, "Person not set in view");
-//            Assertions.AssertPeopleAreEqual(PersonObjectMother.GetPerson(TestPeople.Ted), listView.ViewPerson);
-//        }
+            //Act
+            listView.PressViewButton();
 
-//        [Test]
-//        public void PersonListPresenter_EditButtonPressed_ShowsPersonDetailsViewInEditMode()
-//        {
-//            // Arrange
-//            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue) };
-//            FakePersonListView listView = new FakePersonListView();
-//            listView.SetPersonList(personList);
+            //Assert
+            //Assert.IsNotNull(listView.ViewPerson, "Person not set in view");
+            Assertions.AssertPeopleAreEqual(PersonObjectMother.GetPerson(TestPeople.Ted), detailsPresenter.ShownPerson);
+        }
 
-//            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
-//            PersonListPresenter listPresenter = new PersonListPresenter(new FakePersonManager());
-//            listPresenter.View = listView;
+        //[Test]
+        //public void PersonListPresenter_EditButtonPressed_ShowsPersonDetailsViewInEditMode()
+        //{
+        //    // Arrange
+        //    List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue) };
+        //    FakePersonListView listView = new FakePersonListView();
+        //    listView.SetPersonList(personList);
 
-//            listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
+        //    FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+        //    PersonListPresenter listPresenter = new PersonListPresenter(listView, new FakePersonManager());
+        //    ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Act
-//            listView.PressEditButton();
+        //    listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.IsTrue(listView.OpenPersonDetailsScreenModelessCalled, "View was not opened");
-//            Assert.IsTrue(detailsPresenter.EditPersonCalled, "Edit not called on details presenter");
-//        }
+        //    //Act
+        //    listView.PressEditButton();
 
-//        [Test]
-//        public void PersonListPresenter_EditButtonPressed_PassesCorrectPersonDetailsToPersonDetailsPresenter()
-//        {
-//            // Arrange
-//            Person addedPerson = PersonObjectMother.GetPerson(TestPeople.Sue);
-//            List<Person> personList = new List<Person>() { addedPerson };
-//            FakePersonListView listView = new FakePersonListView();
-//            listView.SetPersonList(personList);
+        //    //Assert
+        //    Assert.IsTrue(listView.OpenPersonDetailsScreenModelessCalled, "View was not opened");
+        //    Assert.IsTrue(detailsPresenter.EditPersonCalled, "Edit not called on details presenter");
+        //}
 
-//            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
-//            PersonListPresenter listPresenter = new PersonListPresenter(new FakePersonManager());
-//            listPresenter.View = listView;
+        //[Test]
+        //public void PersonListPresenter_EditButtonPressed_PassesCorrectPersonDetailsToPersonDetailsPresenter()
+        //{
+        //    // Arrange
+        //    Person addedPerson = PersonObjectMother.GetPerson(TestPeople.Sue);
+        //    List<Person> personList = new List<Person>() { addedPerson };
+        //    FakePersonListView listView = new FakePersonListView();
+        //    listView.SetPersonList(personList);
 
-//            listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
+        //    FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+        //    PersonListPresenter listPresenter = new PersonListPresenter(listView, new FakePersonManager());
+        //    ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Act
-//            listView.PressEditButton();
+        //    listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
 
-//            //Assert
-//            Assert.AreEqual(addedPerson.Forename, detailsPresenter.ShowPersonForename, "Forename not added correctly");
-//            Assert.AreEqual(addedPerson.Surname, detailsPresenter.ShowPersonSurname, "Surname not added correctly");
-//            Assert.AreEqual(addedPerson.BirthdayDay, detailsPresenter.ShowPersonBirthdayDay, "BirthdayDay not added correctly");
-//            Assert.AreEqual(addedPerson.BirthdayMonth, detailsPresenter.ShowPersonBirthdayMonth, "BirthdayMonth not added correctly");
-//        }
+        //    //Act
+        //    listView.PressEditButton();
 
-//        [Test]
-//        public void PersonListPresenter_ViewButtonPressed_GivesWarningIfNoPersonSelected()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
+        //    //Assert
+        //    Assert.AreEqual(addedPerson.Forename, detailsPresenter.ShowPersonForename, "Forename not added correctly");
+        //    Assert.AreEqual(addedPerson.Surname, detailsPresenter.ShowPersonSurname, "Surname not added correctly");
+        //    Assert.AreEqual(addedPerson.BirthdayDay, detailsPresenter.ShowPersonBirthdayDay, "BirthdayDay not added correctly");
+        //    Assert.AreEqual(addedPerson.BirthdayMonth, detailsPresenter.ShowPersonBirthdayMonth, "BirthdayMonth not added correctly");
+        //}
 
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+        [Test]
+        public void PersonListPresenter_ViewButtonPressed_GivesWarningIfNoPersonSelected()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
 
-//            //Act
-//            listView.PressViewButton();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Assert
-//            Assert.AreEqual("Please select a person to view", listView.WarningMessage, "Warning message not set correctly");
-//        }
+            //Act
+            listView.PressViewButton();
 
-//        [Test]
-//        public void PersonListPresenter_EditButtonPressed_GivesWarningIfNoPersonSelected()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
+            //Assert
+            Assert.AreEqual("Please select a person to view", listView.WarningMessage, "Warning message not set correctly");
+        }
 
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+        [Test]
+        public void PersonListPresenter_EditButtonPressed_GivesWarningIfNoPersonSelected()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
 
-//            //Act
-//            listView.PressEditButton();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Assert
-//            Assert.AreEqual("Please select a person to edit", listView.WarningMessage, "Warning message not set correctly");
-//        }
+            //Act
+            listView.PressEditButton();
 
-//        [Test]
-//        public void PersonListPresenter_DeleteButtonPressed_GivesWarningIfNoPersonSelected()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonListView listView = new FakePersonListView();
+            //Assert
+            Assert.AreEqual("Please select a person to edit", listView.WarningMessage, "Warning message not set correctly");
+        }
 
-//            IPersonListPresenter listPresenter = new PersonListPresenter(manager);
-//            listPresenter.View = listView;
+        [Test]
+        public void PersonListPresenter_DeleteButtonPressed_GivesWarningIfNoPersonSelected()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
 
-//            //Act
-//            listView.PressDeleteButton();
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
 
-//            //Assert
-//            Assert.AreEqual("Please select a person to delete", listView.WarningMessage, "Warning message not set correctly");
-//        }
-//    }
-//}
+            //Act
+            listView.PressDeleteButton();
+
+            //Assert
+            Assert.AreEqual("Please select a person to delete", listView.WarningMessage, "Warning message not set correctly");
+        }
+    }
+}

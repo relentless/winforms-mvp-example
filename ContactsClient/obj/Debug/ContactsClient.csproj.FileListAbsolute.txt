@@ -59,3 +59,20 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\ContactsD
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient\bin\Debug\ContactsDomain.pdb
 E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.exe
 E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsPrototype1.sdf
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\hibernate.cfg.xml
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsClient.exe
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsClient.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsDataAccess.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\log4net.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\Antlr3.Runtime.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\Iesi.Collections.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\NHibernate.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsDataAccess.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ResolveAssemblyReference.cache
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.PersonDetails.PersonDetailsView.resources
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.PersonList.PersonListView.resources
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.Properties.Resources.resources
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient\obj\Debug\ContactsClient.csproj.GenerateResource.Cache
