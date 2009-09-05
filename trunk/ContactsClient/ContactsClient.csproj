@@ -118,9 +118,9 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)..\SharedLib\sqlce*.dll $(ProjectDir)$(OutDir)
-copy $(ProjectDir)..\SharedLib\*Lin*.dll $(ProjectDir)$(OutDir)
-copy $(ProjectDir)..\SharedLib\System.Data.SqlServerCe.dll $(ProjectDir)$(OutDir)
+    <PostBuildEvent>copy "$(ProjectDir)..\SharedLib\sqlce*.dll" "$(ProjectDir)$(OutDir)"
+copy "$(ProjectDir)..\SharedLib\*Lin*.dll" "$(ProjectDir)$(OutDir)"
+copy "$(ProjectDir)..\SharedLib\System.Data.SqlServerCe.dll" "$(ProjectDir)$(OutDir)"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

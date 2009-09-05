@@ -58,3 +58,18 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsDataAccess\bin\Debug\Conta
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDataAccess\obj\Debug\ResolveAssemblyReference.cache
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDataAccess\obj\Debug\ContactsDataAccess.dll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDataAccess\obj\Debug\ContactsDataAccess.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\ContactsPrototype1.sdf
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\hibernate.cfg.xml
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\ContactsDataAccess.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\ContactsDataAccess.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\LinFu.DynamicProxy.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\NHibernate.ByteCode.LinFu.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\NHibernate.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\log4net.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\Antlr3.Runtime.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\Iesi.Collections.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\obj\Debug\ResolveAssemblyReference.cache
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\obj\Debug\ContactsDataAccess.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDataAccess\obj\Debug\ContactsDataAccess.pdb

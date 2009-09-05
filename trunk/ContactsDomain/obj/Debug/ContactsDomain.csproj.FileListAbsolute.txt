@@ -22,3 +22,9 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain\bin\Debug\Iesi.Coll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain\obj\Debug\ResolveAssemblyReference.cache
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain\obj\Debug\ContactsDomain.dll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain\obj\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\bin\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\bin\Debug\Iesi.Collections.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\obj\Debug\ResolveAssemblyReference.cache
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\obj\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain\obj\Debug\ContactsDomain.pdb

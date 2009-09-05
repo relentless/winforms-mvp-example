@@ -64,3 +64,25 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient.Tests\bin\Debug\Con
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient.Tests\obj\Debug\ResolveAssemblyReference.cache
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient.Tests\obj\Debug\ContactsClient.Tests.dll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsClient.Tests\obj\Debug\ContactsClient.Tests.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.exe
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDomain.Tests.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\nunit.framework.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\NUnitForms.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\TestUtils.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDataAccess.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\NHibernate.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\Antlr3.Runtime.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\NUnitForms.ScreenCapture.exe
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\Iesi.Collections.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\log4net.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDataAccess.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDomain.Tests.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\TestUtils.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\obj\Debug\ResolveAssemblyReference.cache
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\obj\Debug\ContactsClient.Tests.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\obj\Debug\ContactsClient.Tests.pdb

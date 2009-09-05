@@ -6,7 +6,7 @@ namespace ContactsClient
     {
         #region IViewFactory Members
 
-        public IPersonDetailsView DetailsView()
+        public IPersonDetailsView CreateDetailsView()
         {
             return new PersonDetailsView();
         }

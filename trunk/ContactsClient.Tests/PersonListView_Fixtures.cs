@@ -14,6 +14,7 @@ namespace ContactsClient.Tests
     public class PersonListView_Fixtures
     {
         [Test]
+        [Category("Event Tests")]
         public void PersonListView_LoadButtonPressed_FiresEvent()
         {
             // Arrange
@@ -34,6 +35,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("Event Tests")]
         public void PersonListView_DeleteButtonPressed_FiresEvent()
         {
             // Arrange
@@ -54,6 +56,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("Event Tests")]
         public void PersonListView_EditButtonPressed_FiresEvent()
         {
             // Arrange
@@ -74,6 +77,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("Event Tests")]
         public void PersonListView_AddButtonPressed_FiresEvent()
         {
             // Arrange
@@ -94,6 +98,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("Event Tests")]
         public void PersonListView_ViewButtonPressed_FiresEvent()
         {
             // Arrange
@@ -114,6 +119,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("UI Tests")]
         public void PersonListView_SetPersonList_DisplaysCorrectPeople()
         {
             // Arrange
@@ -141,6 +147,7 @@ namespace ContactsClient.Tests
         }
 
         [Test]
+        [Category("UI Tests")]
         public void PersonListView_GetSelectedListItems_ReturnsCorrectPerson()
         {
             // Arrange
@@ -254,9 +261,14 @@ namespace ContactsClient.Tests
 
             #region IPersonDetailsPresenter Members
 
+            //public IPersonDetailsView View
+            //{
+            //    set { _view = value; }
+            //}
+
             public IPersonDetailsView View
             {
-                set { _view = value; }
+                get { return _view; }
             }
 
             public void OkButtonPressed()
@@ -264,10 +276,12 @@ namespace ContactsClient.Tests
                 _view.CloseForm();
             }
 
-            public void Start()
-            { }
+            //public void Start()
+            //{ }
 
             public void ViewClosed() { }
+
+            public void AddPerson() { }
 
             public void ShowPerson(Person person)
             {}

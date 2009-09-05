@@ -4,6 +4,6 @@ namespace ContactsClient
 {
     public interface IViewFactory
     {
-        IPersonDetailsView DetailsView();
+        IPersonDetailsView CreateDetailsView();
     }
 }

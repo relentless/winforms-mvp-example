@@ -1,190 +1,222 @@
-﻿//using NUnit.Framework;
-//using ContactsClient.PersonDetails;
-//using System.Collections.Generic;
-//using ContactsDomain.DomainObjects;
-//using ContactsDomain.BusinessManagers;
-//using System;
-//using ContactsDomain.Tests;
+﻿using NUnit.Framework;
+using ContactsClient.PersonDetails;
+using System.Collections.Generic;
+using ContactsDomain.DomainObjects;
+using ContactsDomain.BusinessManagers;
+using System;
+using ContactsDomain.Tests;
 
-//namespace ContactsClient.Tests
-//{
-//    [TestFixture]
-//    public class PersonDetailsPresenter_Fixtures
-//    {
-//        [Test]
-//        public void PersonDetailsPresenter_OkButtonPressedInViewMode_ClosesView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView();
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
-//            presenter.ShowPerson(PersonObjectMother.GetPerson(TestPeople.Ted)); // sets to view mode
+namespace ContactsClient.Tests
+{
+    [TestFixture]
+    public class PersonDetailsPresenter_Fixtures
+    {
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInViewMode_ClosesView()
+        {
+            // Arrange
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(new FakeViewFactory(), new FakePersonManager());
+            presenter.ShowPerson(PersonObjectMother.GetPerson(TestPeople.Ted)); // sets to view mode
 
-//            //Act
-//            presenter.OkButtonPressed();
+            //Act
+            presenter.OkButtonPressed();
 
-//            //Assert
-//            Assert.IsTrue(view.FormClosed, "Form not closed");
-//        }
+            //Assert
+            FakePersonDetailsView view = (FakePersonDetailsView)presenter.View;
+            Assert.IsTrue(view.FormClosed, "Form not closed");
+        }
 
-//        [Test]
-//        public void PersonDetailsPresenter_OkButtonPressedInAddMode_AddsPersonToRepository()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInAddMode_ClosesView()
+        {
+            // Arrange
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(new FakeViewFactory(), new FakePersonManager());
+            presenter.AddPerson();
 
-//            FakePersonDetailsView view = new FakePersonDetailsView() { Forename = "Jed", Surname = "Jetson", BirthdayDay = "29", BirthdayMonth = "2" };
+            //Act
+            presenter.OkButtonPressed();
 
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Assert
+            FakePersonDetailsView view = (FakePersonDetailsView)presenter.View;
+            Assert.IsTrue(view.FormClosed, "Form not closed");
+        }
 
-//            //Act
-//            presenter.OkButtonPressed();
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInEditMode_ClosesView()
+        {
+            // Arrange
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(new FakeViewFactory(), new FakePersonManager());
+            presenter.EditPerson(PersonObjectMother.GetPerson(TestPeople.Ted)); // sets to edit mode
 
-//            //Assert
-//            Person addedPerson = manager.AddedPerson;
-//            Assert.IsNotNull(addedPerson, "The person was not added to the repository");
-//            Assert.AreEqual("Jed", addedPerson.Forename, "Forename not added correctly");
-//            Assert.AreEqual("Jetson", addedPerson.Surname, "Surname not added correctly");
-//            Assert.AreEqual(29, addedPerson.BirthdayDay, "BirthdayDay not added correctly");
-//            Assert.AreEqual(2, addedPerson.BirthdayMonth, "BirthdayMonth not added correctly");
-//        }
+            //Act
+            presenter.OkButtonPressed();
 
-//        [Test]
-//        public void PersonDetailsPresenter_OkButtonPressedInAddMode_ClosesView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView() { Forename = "Jed", Surname = "Jetson", BirthdayDay = "29", BirthdayMonth = "2" };
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Assert
+            FakePersonDetailsView view = (FakePersonDetailsView)presenter.View;
+            Assert.IsTrue(view.FormClosed, "Form not closed");
+        }
 
-//            //Act
-//            presenter.OkButtonPressed();
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInUndefinedMode_ThrowsException()
+        {
+            // Arrange
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(new FakeViewFactory(), new FakePersonManager());
 
-//            //Assert
-//            Assert.IsTrue(view.FormClosed, "Form not closed");
-//        }
+            //Act
+            ApplicationException expectedException = null;
 
-//        [Test]
-//        public void PersonDetailsPresenter_ShowPerson_SetsViewTitle()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView();
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            try{ presenter.OkButtonPressed(); }
+            catch (ApplicationException ex){ expectedException = ex; }
 
-//            Person p = new Person();
+            //Assert
+            Assert.IsNotNull(expectedException, "Exception not thrown as expected");
+        }
 
-//            //Act
-//            presenter.ShowPerson(p);
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInAddMode_AddsPersonToManager()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            IPersonDetailsView view = new FakePersonDetailsView() { Forename = "Jed", Surname = "Jetson", BirthdayDay = "29", BirthdayMonth = "2" };
+            FakeViewFactory factory = new FakeViewFactory(view);
 
-//            //Assert
-//            Assert.AreEqual("View Person", view.Title, "Title not set in view");
-//        }
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
+            presenter.AddPerson();
 
-//        [Test]
-//        public void PersonDetailsPresenter_ShowPerson_PassesCorrectDetailsToView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView();
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Act
+            presenter.OkButtonPressed();
 
-//            Person p = new Person(){Forename = "Jed", Surname = "Jetson", BirthdayDay = 29, BirthdayMonth = 2 };
+            //Assert
+            Person addedPerson = manager.AddedPerson;
+            Assert.IsNotNull(addedPerson, "The person was not added to the repository");
+            Assert.AreEqual("Jed", addedPerson.Forename, "Forename not added correctly");
+            Assert.AreEqual("Jetson", addedPerson.Surname, "Surname not added correctly");
+            Assert.AreEqual(29, addedPerson.BirthdayDay, "BirthdayDay not added correctly");
+            Assert.AreEqual(2, addedPerson.BirthdayMonth, "BirthdayMonth not added correctly");
+        }
 
-//            //Act
-//            presenter.ShowPerson(p);
+        [Test]
+        public void PersonDetailsPresenter_OkButtonPressedInEditMode_UpdatesPersonInManager()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(new FakeViewFactory(), manager);
 
-//            //Assert
-//            Assert.AreEqual("Jed", view.Forename, "Forename not set in view");
-//            Assert.AreEqual("Jetson", view.Surname, "Surname not set in view");
-//            Assert.AreEqual("29", view.BirthdayDay, "BirthdayDay not set in view");
-//            Assert.AreEqual("2", view.BirthdayMonth, "BirthdayMonth not set in view");
-//        }
+            Person p = PersonObjectMother.GetPerson(TestPeople.Sue);
+            presenter.EditPerson(p);
 
-//        [Test]
-//        public void PersonDetailsPresenter_EditPerson_SetsViewTitle()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView();
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Act
+            presenter.OkButtonPressed();
 
-//            Person p = new Person();
+            //Assert
+            Person updatedPerson = manager.UpdatedPerson;
+            Assert.IsNotNull(updatedPerson, "The person was not updated in the manager");
+            Assert.AreEqual(p.Forename, updatedPerson.Forename, "Forename not added correctly");
+            Assert.AreEqual(p.Surname, updatedPerson.Surname, "Surname not added correctly");
+            Assert.AreEqual(p.BirthdayDay, updatedPerson.BirthdayDay, "BirthdayDay not added correctly");
+            Assert.AreEqual(p.BirthdayMonth, updatedPerson.BirthdayMonth, "BirthdayMonth not added correctly");
+        }
 
-//            //Act
-//            presenter.EditPerson(p);
+        [Test]
+        public void PersonDetailsPresenter_ShowPerson_SetsViewTitle()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
 
-//            //Assert
-//            Assert.AreEqual("Edit Person", view.Title, "Title not set in view");
-//        }
+            //Act
+            presenter.ShowPerson(new Person());
 
-//        [Test]
-//        public void PersonDetailsPresenter_EditPerson_PassesCorrectDetailsToView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView();
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Assert
+            Assert.AreEqual("View Person", view.Title, "Title not set in view");
+        }
 
-//            Person p = new Person() { Forename = "Jed", Surname = "Jetson", BirthdayDay = 29, BirthdayMonth = 2 };
+        [Test]
+        public void PersonDetailsPresenter_EditPerson_SetsViewTitle()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
 
-//            //Act
-//            presenter.EditPerson(p);
+            //Act
+            presenter.EditPerson(new Person());
 
-//            //Assert
-//            Assert.AreEqual("Jed", view.Forename, "Forename not set in view");
-//            Assert.AreEqual("Jetson", view.Surname, "Surname not set in view");
-//            Assert.AreEqual("29", view.BirthdayDay, "BirthdayDay not set in view");
-//            Assert.AreEqual("2", view.BirthdayMonth, "BirthdayMonth not set in view");
-//        }
+            //Assert
+            Assert.AreEqual("Edit Person", view.Title, "Title not set in view");
+        }
 
-//        [Test]
-//        public void PersonDetailsPresenter_OkButtonPressedInEditMode_UpdatesPersonInManager()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
+        [Test]
+        public void PersonDetailsPresenter_AddPerson_SetsViewTitle()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
 
-//            FakePersonDetailsView view = new FakePersonDetailsView() ;
+            //Act
+            presenter.AddPerson();
 
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
-//            Person p = PersonObjectMother.GetPerson(TestPeople.Sue);
-//            presenter.EditPerson(p);
+            //Assert
+            Assert.AreEqual("Add Person", view.Title, "Title not set in view");
+        }
 
-//            //Act
-//            presenter.OkButtonPressed();
+        [Test]
+        public void PersonDetailsPresenter_ShowPerson_PassesCorrectDetailsToView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
 
-//            //Assert
-//            Person updatedPerson = manager.UpdatedPerson;
-//            Assert.IsNotNull(updatedPerson, "The person was not updated in the manager");
-//            Assert.AreEqual(p.Forename, updatedPerson.Forename, "Forename not added correctly");
-//            Assert.AreEqual(p.Surname, updatedPerson.Surname, "Surname not added correctly");
-//            Assert.AreEqual(p.BirthdayDay, updatedPerson.BirthdayDay, "BirthdayDay not added correctly");
-//            Assert.AreEqual(p.BirthdayMonth, updatedPerson.BirthdayMonth, "BirthdayMonth not added correctly");
-//        }
+            //Act
+            presenter.ShowPerson(PersonObjectMother.GetPerson(TestPeople.Bill));
 
-//        [Test]
-//        public void PersonDetailsPresenter_OkButtonPressedInEditMode_ClosesView()
-//        {
-//            // Arrange
-//            FakePersonManager manager = new FakePersonManager();
-//            FakePersonDetailsView view = new FakePersonDetailsView() { Forename = "Jed", Surname = "Jetson", BirthdayDay = "29", BirthdayMonth = "2" };
-//            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(manager);
-//            presenter.View = view;
+            //Assert
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Bill).Forename, view.Forename, "Forename not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Bill).Surname, view.Surname, "Surname not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Bill).BirthdayDay.ToString(), view.BirthdayDay, "BirthdayDay not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Bill).BirthdayMonth.ToString(), view.BirthdayMonth, "BirthdayMonth not set in view");
+        }
 
-//            //Act
-//            presenter.EditPerson(PersonObjectMother.GetPerson(TestPeople.Ted));
-//            presenter.OkButtonPressed();
+        [Test]
+        public void PersonDetailsPresenter_EditPerson_PassesCorrectDetailsToView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
 
-//            //Assert
-//            Assert.IsTrue(view.FormClosed, "Form not closed");
-//        }
-//    }
-//}
+            //Act
+            presenter.EditPerson(PersonObjectMother.GetPerson(TestPeople.Ted));
+
+            //Assert
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Ted).Forename, view.Forename, "Forename not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Ted).Surname, view.Surname, "Surname not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Ted).BirthdayDay.ToString(), view.BirthdayDay, "BirthdayDay not set in view");
+            Assert.AreEqual(PersonObjectMother.GetPerson(TestPeople.Ted).BirthdayMonth.ToString(), view.BirthdayMonth, "BirthdayMonth not set in view");
+        }
+
+        [Test]
+        public void PersonDetailsPresenter_ShowView_ShowsView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonDetailsView view = new FakePersonDetailsView();
+            FakeViewFactory factory = new FakeViewFactory(view);
+            IPersonDetailsPresenter presenter = new PersonDetailsPresenter(factory, manager);
+
+            //Act
+            presenter.ShowView(false);
+
+            //Assert
+            Assert.IsTrue(view.FormShown, "View not shown");
+        }
+    }
+}

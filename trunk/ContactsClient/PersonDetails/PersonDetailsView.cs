@@ -11,13 +11,13 @@ namespace ContactsClient.PersonDetails
         {
             InitializeComponent();
 
-            this.FormClosing += new FormClosingEventHandler(PersonDetailsView_FormClosing);
+            //this.FormClosing += new FormClosingEventHandler(PersonDetailsView_FormClosing);
         }
 
-        void PersonDetailsView_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _presenter.ViewClosed();
-        }
+        //void PersonDetailsView_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    _presenter.ViewClosed();
+        //}
 
         #region IPersonDetailsView Members
 

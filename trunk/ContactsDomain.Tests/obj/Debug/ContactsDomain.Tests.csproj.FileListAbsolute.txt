@@ -31,3 +31,14 @@ E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain.Tests\bin\Debug\Tes
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain.Tests\obj\Debug\ResolveAssemblyReference.cache
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain.Tests\obj\Debug\ContactsDomain.Tests.dll
 E:\Programming\NHibernate\ContactsPrototype1b\ContactsDomain.Tests\obj\Debug\ContactsDomain.Tests.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\ContactsDomain.Tests.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\ContactsDomain.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\nunit.framework.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\TestUtils.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\Iesi.Collections.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\ContactsDomain.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\bin\Debug\TestUtils.pdb
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\obj\Debug\ResolveAssemblyReference.cache
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\obj\Debug\ContactsDomain.Tests.dll
+E:\Programming\Google Code\winforms-mvp-example\ContactsDomain.Tests\obj\Debug\ContactsDomain.Tests.pdb

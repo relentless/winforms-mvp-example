@@ -2,6 +2,6 @@
 {
     public interface IPersonListPresenter
     {
-        void Start();
+        //void Start();
     }
 }

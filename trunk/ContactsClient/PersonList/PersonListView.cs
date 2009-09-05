@@ -51,15 +51,15 @@ namespace ContactsClient.PersonList
             Show();
         }
 
-        public void OpenPersonDetailsScreenViewPerson(Person person)
-        {
-            PersonDetailsView view = new PersonDetailsView();
-            view.Forename = person.Forename;
-            view.Surname = person.Surname;
-            view.BirthdayDay = person.BirthdayDay.ToString();
-            view.BirthdayMonth = person.BirthdayMonth.ToString();
-            view.ShowDialog();
-        }
+        //public void OpenPersonDetailsScreenViewPerson(Person person)
+        //{
+        //    PersonDetailsView view = new PersonDetailsView();
+        //    view.Forename = person.Forename;
+        //    view.Surname = person.Surname;
+        //    view.BirthdayDay = person.BirthdayDay.ToString();
+        //    view.BirthdayMonth = person.BirthdayMonth.ToString();
+        //    view.ShowDialog();
+        //}
 
         public void SetWaitCursor()
         {
