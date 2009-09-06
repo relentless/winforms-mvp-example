@@ -10,21 +10,9 @@ namespace ContactsClient.PersonDetails
         public PersonDetailsView()
         {
             InitializeComponent();
-
-            //this.FormClosing += new FormClosingEventHandler(PersonDetailsView_FormClosing);
         }
-
-        //void PersonDetailsView_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    _presenter.ViewClosed();
-        //}
 
         #region IPersonDetailsView Members
-
-        public void HideForm()
-        {
-            Hide();
-        }
 
         public IPersonDetailsPresenter Presenter
         {

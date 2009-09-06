@@ -3,31 +3,26 @@ using System.Windows.Forms;
 
 namespace ContactsClient.Tests
 {
-    internal class FakePersonDetailsView : IPersonDetailsView
+    public class FakePersonDetailsView : IPersonDetailsView
     {
         private string _title, _forename, _surname, _birthdayDay, _birthdayMonth;
         public bool FormClosed;
         internal bool FormShown { get; set; }
+
+        #region IPersonDetailsView Members
+
+        public IPersonDetailsPresenter Presenter
+        {
+            set { }
+        }
 
         public void ShowForm(bool Modal)
         {
             FormShown = true;
         }
 
-        #region IPersonDetailsView Members
-
-        public IPersonDetailsPresenter Presenter
-        {
-            get { return null; }
-            set { }
-        }
-
-        public void DisplayView() { }
-
         public void ShowForm()
         { }
-
-        public void HideForm() { }
 
         public void CloseForm()
         {

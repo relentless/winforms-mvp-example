@@ -189,56 +189,46 @@ namespace ContactsClient.Tests
             listView.PressViewButton();
 
             //Assert
-            //Assert.IsNotNull(listView.ViewPerson, "Person not set in view");
             Assertions.AssertPeopleAreEqual(PersonObjectMother.GetPerson(TestPeople.Ted), detailsPresenter.ShownPerson);
         }
 
-        //[Test]
-        //public void PersonListPresenter_EditButtonPressed_ShowsPersonDetailsViewInEditMode()
-        //{
-        //    // Arrange
-        //    List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Sue) };
-        //    FakePersonListView listView = new FakePersonListView();
-        //    listView.SetPersonList(personList);
+        [Test]
+        public void PersonListPresenter_EditButtonPressed_CallsShowView()
+        {
+            // Arrange
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            listView.PersonList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Bill) };
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-        //    FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
-        //    PersonListPresenter listPresenter = new PersonListPresenter(listView, new FakePersonManager());
-        //    ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
+            //Act
+            listView.PressEditButton();
 
-        //    listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
+            //Assert
+            Assert.IsTrue(detailsPresenter.ShowViewCalled, "Show not called on Presenter");
+        }
 
-        //    //Act
-        //    listView.PressEditButton();
+        [Test]
+        public void PersonListPresenter_EditButtonPressed_PassesDetailsToPersonDetailsPresenter()
+        {
+            // Arrange
+            List<Person> personList = new List<Person>() { PersonObjectMother.GetPerson(TestPeople.Ted) };
 
-        //    //Assert
-        //    Assert.IsTrue(listView.OpenPersonDetailsScreenModelessCalled, "View was not opened");
-        //    Assert.IsTrue(detailsPresenter.EditPersonCalled, "Edit not called on details presenter");
-        //}
+            FakePersonManager manager = new FakePersonManager();
+            FakePersonListView listView = new FakePersonListView();
+            listView.SetPersonList(personList);
+            IPersonListPresenter listPresenter = new PersonListPresenter(listView, manager);
+            FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
+            ClientServiceLocator.PersonDetailsPresenter = detailsPresenter;
 
-        //[Test]
-        //public void PersonListPresenter_EditButtonPressed_PassesCorrectPersonDetailsToPersonDetailsPresenter()
-        //{
-        //    // Arrange
-        //    Person addedPerson = PersonObjectMother.GetPerson(TestPeople.Sue);
-        //    List<Person> personList = new List<Person>() { addedPerson };
-        //    FakePersonListView listView = new FakePersonListView();
-        //    listView.SetPersonList(personList);
+            //Act
+            listView.PressEditButton();
 
-        //    FakePersonDetailsPresenter detailsPresenter = new FakePersonDetailsPresenter();
-        //    PersonListPresenter listPresenter = new PersonListPresenter(listView, new FakePersonManager());
-        //    ClientServiceLocator.PersonDetailsPresenter = new FakePersonDetailsPresenter();
-
-        //    listView.OpenDetailsScreenReturnPresenter = detailsPresenter;
-
-        //    //Act
-        //    listView.PressEditButton();
-
-        //    //Assert
-        //    Assert.AreEqual(addedPerson.Forename, detailsPresenter.ShowPersonForename, "Forename not added correctly");
-        //    Assert.AreEqual(addedPerson.Surname, detailsPresenter.ShowPersonSurname, "Surname not added correctly");
-        //    Assert.AreEqual(addedPerson.BirthdayDay, detailsPresenter.ShowPersonBirthdayDay, "BirthdayDay not added correctly");
-        //    Assert.AreEqual(addedPerson.BirthdayMonth, detailsPresenter.ShowPersonBirthdayMonth, "BirthdayMonth not added correctly");
-        //}
+            //Assert
+            Assertions.AssertPeopleAreEqual(PersonObjectMother.GetPerson(TestPeople.Ted), detailsPresenter.EditedPerson);
+        }
 
         [Test]
         public void PersonListPresenter_ViewButtonPressed_GivesWarningIfNoPersonSelected()

@@ -12,7 +12,7 @@ namespace ContactsClient.Tests
         public void ClientServiceLocator_GetPersonDetailsPresenter_ReturnsCorrectObject()
         {
             //Arrange
-            FakePersonDetailsPresenter presenter = new FakePersonDetailsPresenter(new FakePersonManager());
+            FakePersonDetailsPresenter presenter = new FakePersonDetailsPresenter();
 
             //Act
             ClientServiceLocator.PersonDetailsPresenter = presenter;

@@ -16,31 +16,6 @@ namespace ContactsClient.Tests
         internal bool ViewPressed { get; set; }
         internal bool EditPressed { get; set; }
 
-        private IPersonListView _view;
-
-        #region IPersonListPresenter Members
-
-        public IPersonListView View
-        {
-            set
-            {
-                _view = value;
-                RegisterViewEvents();
-            }
-        }
-
-        public void Start()
-        { }
-
-        private void RegisterViewEvents()
-        {
-            _view.LoadButtonPressed += new ViewEvent(LoadButtonPressed);
-            _view.AddButtonPressed += new ViewEvent(AddButtonPressed);
-            _view.ViewButtonPressed += new ViewEvent(ViewButtonPressed);
-            _view.EditButtonPressed += new ViewEvent(EditButtonPressed);
-            _view.DeleteButtonPressed += new ViewEvent(DeleteButtonPressed);
-        }
-
         private void LoadButtonPressed()
         {
             LoadPressed = true;
@@ -65,7 +40,5 @@ namespace ContactsClient.Tests
         {
             EditPressed = true;
         }
-
-        #endregion
     }
 }
