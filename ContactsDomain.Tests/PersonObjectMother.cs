@@ -1,5 +1,6 @@
 ﻿using ContactsDomain.DomainObjects;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ContactsDomain.Tests
 {
@@ -11,7 +12,7 @@ namespace ContactsDomain.Tests
     /// <summary>
     /// Creates predefined Person objects for testing
     /// </summary>
-    public class PersonObjectMother
+    public static class PersonObjectMother
     {
         public static Person GetPerson(TestPeople name)
         {
@@ -24,7 +25,9 @@ namespace ContactsDomain.Tests
                 case TestPeople.Sue:
                     return new Person() { Forename = "Sue", Surname = "Smedley", BirthdayDay = 15, BirthdayMonth = 6 };
                 default:
-                    throw new System.ApplicationException("No such person defined");
+                    Debug.Assert(false, "Invalid person selected");
+                    return null;
+                    break;
             }
         }
 

@@ -40,11 +40,6 @@ namespace ContactsClient.PersonDetails
             get { return _view; }
         }
 
-        //public void ViewClosed()
-        //{
-        //    _view = null;
-        //}
-
         public void OkButtonPressed()
         {
             switch (_mode)

@@ -10,13 +10,10 @@ internal class FakePersonListView : IPersonListView
 {
     internal List<Person> PersonList { get; set; }
     internal bool GetSeletedListItemCalled { get; set; }
-    //internal bool OpenPersonDetailsScreenModelessCalled { get; set; }
-    //internal IPersonDetailsPresenter OpenDetailsScreenReturnPresenter { get; set; }
     internal DateTime WaitCursorSetTime { get; set; }
     internal DateTime DefaultCursorSetTime { get; set; }
     internal string WarningMessage { get; set; }
     internal Person ViewPerson { get; set; }
-    //internal bool OpenViewPersonCalled { get; set; }
 
     public event ViewEvent LoadButtonPressed;
     public event ViewEvent AddButtonPressed;
@@ -46,19 +43,6 @@ internal class FakePersonListView : IPersonListView
 
         return null;
     }
-
-    //public IPersonDetailsPresenter OpenPersonDetailsScreenModeless()
-    //{
-    //    OpenPersonDetailsScreenModelessCalled = true;
-
-    //    return OpenDetailsScreenReturnPresenter;
-    //}
-
-    //public void OpenPersonDetailsScreenViewPerson(Person person)
-    //{
-    //    OpenViewPersonCalled = true;
-    //    ViewPerson = person;
-    //}
 
     public void ShowWarning(string Title, string message)
     {

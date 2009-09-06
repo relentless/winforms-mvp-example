@@ -5,6 +5,7 @@ using ContactsDomain.DomainObjects;
 using ContactsDomain.BusinessManagers;
 using System;
 using ContactsDomain.Tests;
+using TestUtils;
 
 namespace ContactsClient.Tests
 {
@@ -111,10 +112,8 @@ namespace ContactsClient.Tests
             //Assert
             Person updatedPerson = manager.UpdatedPerson;
             Assert.IsNotNull(updatedPerson, "The person was not updated in the manager");
-            Assert.AreEqual(p.Forename, updatedPerson.Forename, "Forename not added correctly");
-            Assert.AreEqual(p.Surname, updatedPerson.Surname, "Surname not added correctly");
-            Assert.AreEqual(p.BirthdayDay, updatedPerson.BirthdayDay, "BirthdayDay not added correctly");
-            Assert.AreEqual(p.BirthdayMonth, updatedPerson.BirthdayMonth, "BirthdayMonth not added correctly");
+
+            Assertions.AssertPeopleAreEqual(p, updatedPerson);
         }
 
         [Test]

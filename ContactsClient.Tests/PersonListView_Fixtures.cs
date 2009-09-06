@@ -239,57 +239,5 @@ namespace ContactsClient.Tests
             Assert.AreEqual("Test Title", title, "Title not correct");
             Assert.AreEqual("Test Message", message, "Message not correct");
         }
-
-        /// <summary>
-        /// Presses an Ok button
-        /// </summary>
-        private void ClosePersonDetailsViewWithOkButton()
-        {
-            ButtonTester buttonTest = new ButtonTester("btnOk");
-            buttonTest.Click();
-        }
-
-        /// <summary>
-        /// Fake presenter which closes the view when the Ok button is pressed
-        /// </summary>
-        private class FakePersonDetailsPresenter_ViewCloser : IPersonDetailsPresenter
-        {
-            private IPersonDetailsView _view;
-
-            public void ShowView(bool Modal)
-            { }
-
-            #region IPersonDetailsPresenter Members
-
-            //public IPersonDetailsView View
-            //{
-            //    set { _view = value; }
-            //}
-
-            public IPersonDetailsView View
-            {
-                get { return _view; }
-            }
-
-            public void OkButtonPressed()
-            {
-                _view.CloseForm();
-            }
-
-            //public void Start()
-            //{ }
-
-            public void ViewClosed() { }
-
-            public void AddPerson() { }
-
-            public void ShowPerson(Person person)
-            {}
-
-            public void EditPerson(Person person)
-            {}
-
-            #endregion
-        }
     }
 }

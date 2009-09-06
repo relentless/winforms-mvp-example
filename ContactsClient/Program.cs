@@ -27,7 +27,6 @@ namespace ContactsClient
             SetupServiceLocator();
 
             IPersonListPresenter listPresenter = ClientServiceLocator.PersonListPresenter;
-            //listPresenter.Start();
 
             Application.Run();
         }

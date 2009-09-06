@@ -23,13 +23,6 @@ namespace ContactsClient.PersonList
             _view.ShowView();
         }
 
-        //public void Start()
-        //{
-        //    _view.Presenter = this;
-        //    RegisterViewEvents();
-        //    _view.ShowView();
-        //}
-
         private void RegisterViewEvents()
         {
             _view.LoadButtonPressed += new ViewEvent(LoadButtonPressed);
@@ -47,7 +40,6 @@ namespace ContactsClient.PersonList
         private void AddButtonPressed()
         {
             IPersonDetailsPresenter detailsPresenter = ClientServiceLocator.PersonDetailsPresenter;
-            //detailsPresenter.Start();
             detailsPresenter.ShowView(true);
             detailsPresenter.AddPerson();
             LoadPersonList();
@@ -75,7 +67,6 @@ namespace ContactsClient.PersonList
             if (selectedPerson != null)
             {
                 IPersonDetailsPresenter detailsPresenter = ClientServiceLocator.PersonDetailsPresenter;
-                //detailsPresenter.Start();
                 detailsPresenter.ShowPerson(selectedPerson);
                 detailsPresenter.ShowView(true);
             }
@@ -92,7 +83,6 @@ namespace ContactsClient.PersonList
             if (selectedPerson != null)
             {
                 IPersonDetailsPresenter detailsPresenter = ClientServiceLocator.PersonDetailsPresenter;
-                //detailsPresenter.Start();
                 detailsPresenter.EditPerson(selectedPerson);
                 detailsPresenter.ShowView(true);
                 LoadPersonList();

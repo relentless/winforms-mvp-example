@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1000]E:\Programming\Google Code\winforms-mvp-example\ContactsPrototype_UnitTests.nunit</TopNode>
+  <TopNode>[0-1056]ContactsClient</TopNode>
   <SelectedNode>[0-1000]E:\Programming\Google Code\winforms-mvp-example\ContactsPrototype_UnitTests.nunit</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
@@ -26,11 +26,11 @@
             </Node>
           </Nodes>
         </Node>
-        <Node UniqueName="[0-1038]E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" Expanded="true">
+        <Node UniqueName="[0-1055]E:\Programming\Google Code\winforms-mvp-example\ContactsClient.Tests\bin\Debug\ContactsClient.Tests.dll" Expanded="true">
           <Nodes>
-            <Node UniqueName="[0-1039]ContactsClient" Expanded="true">
+            <Node UniqueName="[0-1056]ContactsClient" Expanded="true">
               <Nodes>
-                <Node UniqueName="[0-1040]ContactsClient.Tests" Expanded="true">
+                <Node UniqueName="[0-1057]ContactsClient.Tests" Expanded="true">
                   <Nodes>
                     <Node UniqueName="[0-1020]ContactsClient.Tests.ClientServiceLocator_Fixtures" Expanded="true">
                       <Nodes>
@@ -42,16 +42,36 @@
                     </Node>
                     <Node UniqueName="[0-1027]ContactsClient.Tests.PersonDetailsPresenter_Fixtures" Expanded="true">
                       <Nodes>
-                        <Node UniqueName="[0-1035]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddPerson_SetsViewTitle" />
-                        <Node UniqueName="[0-1037]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_EditPerson_PassesCorrectDetailsToView" />
-                        <Node UniqueName="[0-1034]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_EditPerson_SetsViewTitle" />
-                        <Node UniqueName="[0-1031]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInAddMode_AddsPersonToManager" />
+                        <Node UniqueName="[0-1036]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_AddPerson_SetsViewTitle" />
+                        <Node UniqueName="[0-1038]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_EditPerson_PassesCorrectDetailsToView" />
+                        <Node UniqueName="[0-1035]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_EditPerson_SetsViewTitle" />
+                        <Node UniqueName="[0-1032]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInAddMode_AddsPersonToManager" />
                         <Node UniqueName="[0-1029]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInAddMode_ClosesView" />
                         <Node UniqueName="[0-1030]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInEditMode_ClosesView" />
-                        <Node UniqueName="[0-1032]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInEditMode_UpdatesPersonInManager" />
+                        <Node UniqueName="[0-1033]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInEditMode_UpdatesPersonInManager" />
+                        <Node UniqueName="[0-1031]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInUndefinedMode_ThrowsException" />
                         <Node UniqueName="[0-1028]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_OkButtonPressedInViewMode_ClosesView" />
-                        <Node UniqueName="[0-1036]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_ShowPerson_PassesCorrectDetailsToView" />
-                        <Node UniqueName="[0-1033]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_ShowPerson_SetsViewTitle" />
+                        <Node UniqueName="[0-1037]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_ShowPerson_PassesCorrectDetailsToView" />
+                        <Node UniqueName="[0-1034]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_ShowPerson_SetsViewTitle" />
+                        <Node UniqueName="[0-1039]ContactsClient.Tests.PersonDetailsPresenter_Fixtures.PersonDetailsPresenter_ShowView_ShowsView" />
+                      </Nodes>
+                    </Node>
+                    <Node UniqueName="[0-1040]ContactsClient.Tests.PersonListPresenter_Fixtures" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1044]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_AddButtonPressed_CallsAddPerson" />
+                        <Node UniqueName="[0-1043]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_AddButtonPressed_CallsShowView" />
+                        <Node UniqueName="[0-1045]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_AddButtonPressed_ReloadsPersonList" />
+                        <Node UniqueName="[0-1047]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_DeleteButtonPressed_DeletesSelectedPersonFromRepository" />
+                        <Node UniqueName="[0-1046]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_DeleteButtonPressed_GetsSelectedPersonFromView" />
+                        <Node UniqueName="[0-1054]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_DeleteButtonPressed_GivesWarningIfNoPersonSelected" />
+                        <Node UniqueName="[0-1050]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_EditButtonPressed_CallsShowView" />
+                        <Node UniqueName="[0-1053]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_EditButtonPressed_GivesWarningIfNoPersonSelected" />
+                        <Node UniqueName="[0-1051]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_EditButtonPressed_PassesDetailsToPersonDetailsPresenter" />
+                        <Node UniqueName="[0-1041]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_LoadButtonPressed_SetsPersonList" />
+                        <Node UniqueName="[0-1042]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_LoadButtonPressed_ShowsWaitCursorWhileDataLoading" />
+                        <Node UniqueName="[0-1048]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_ViewButtonPressed_CallsShowView" />
+                        <Node UniqueName="[0-1052]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_ViewButtonPressed_GivesWarningIfNoPersonSelected" />
+                        <Node UniqueName="[0-1049]ContactsClient.Tests.PersonListPresenter_Fixtures.PersonListPresenter_ViewButtonPressed_PassesDetailsToPersonDetailsPresenter" />
                       </Nodes>
                     </Node>
                     <Node UniqueName="[0-1009]ContactsClient.Tests.PersonListView_Fixtures" Expanded="true">
